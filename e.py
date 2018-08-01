@@ -24,7 +24,7 @@ from math import floor, e as e_def
 from random import seed, random
 from matplotlib import pyplot as plt
 
-def gnedenko(number_of_samples, extreme, freq_length):
+def gnedenko(number_of_samples, extreme, freq_length=0):
     '''
     An estimate of `e' as the expectation of
     a random variable that is the number of uniform
