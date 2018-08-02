@@ -59,7 +59,8 @@ def gnedenko(number_of_samples, sum_limit, freq_length=0):
             frequencies[count - floor_sum_limit_plus_1] += 1
 
     e_estimate /= number_of_samples
-    frequencies = [(x/number_of_samples) for x in frequencies]
+    if non_zero_fl:
+        frequencies = [(x/number_of_samples) for x in frequencies]
 
     if non_zero_fl:
         return e_estimate, frequencies
