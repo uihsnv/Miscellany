@@ -22,7 +22,7 @@ from os import urandom
 from math import floor
 from random import seed, random
 
-def gnedenko(number_of_samples, extreme, freq_length=0):
+def gnedenko(number_of_samples, sum_limit, freq_length=0):
     '''
     An estimate of `e' as the expectation of
     a random variable that is the number of uniform
@@ -40,20 +40,20 @@ def gnedenko(number_of_samples, extreme, freq_length=0):
     # Initialise list to contain the counts of each sum
     frequencies = [0 for _ in range(freq_length)]
     # Quantity used due to a finite sampling of the frequency distribution
-    floor_extreme_plus_1 = floor(extreme) + 1
+    floor_sum_limit_plus_1 = floor(sum_limit) + 1
 
     for _ in range(number_of_samples):
 
         temp_sum = 0.0
         count = 0
 
-        while temp_sum < extreme:
+        while temp_sum < sum_limit:
             temp_sum += random()
             count += 1
 
         e_estimate += count
-        if count < (floor_extreme_plus_1 + freq_length):
-            frequencies[count - floor_extreme_plus_1] += 1
+        if count < (floor_sum_limit_plus_1 + freq_length):
+            frequencies[count - floor_sum_limit_plus_1] += 1
 
     e_estimate /= number_of_samples
     frequencies = [(x/number_of_samples) for x in frequencies]
