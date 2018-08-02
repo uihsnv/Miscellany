@@ -31,7 +31,7 @@ SUMS = [x/10 for x in range(1, NUM_POINTS+1)]
 # The total number of Uniform random numbers to use
 N = 100000
 # Find the generalised estimates
-ESTIMATES = [gnedenko(N, SUMS[i])[0] for i in range(NUM_POINTS)]
+ESTIMATES = [gnedenko(N, SUMS[i]) for i in range(NUM_POINTS)]
 
 plt.plot(SUMS, ESTIMATES, '.')
 plt.plot((0, 5), (e_def, e_def))

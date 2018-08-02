@@ -37,10 +37,13 @@ def gnedenko(number_of_samples, sum_limit, freq_length=0):
 
     # Initialise estimate value to 0
     e_estimate = 0.0
-    # Initialise list to contain the counts of each sum
-    frequencies = [0 for _ in range(freq_length)]
     # Quantity used due to a finite sampling of the frequency distribution
     floor_sum_limit_plus_1 = floor(sum_limit) + 1
+    # Boolean tracking a non-zero freq_length
+    non_zero_fl = (freq_length != 0)
+    # Initialise list to contain the counts of each sum
+    if non_zero_fl:
+        frequencies = [0 for _ in range(freq_length)]
 
     for _ in range(number_of_samples):
 
@@ -52,13 +55,16 @@ def gnedenko(number_of_samples, sum_limit, freq_length=0):
             count += 1
 
         e_estimate += count
-        if count < (floor_sum_limit_plus_1 + freq_length):
+        if non_zero_fl and (count < (floor_sum_limit_plus_1 + freq_length)):
             frequencies[count - floor_sum_limit_plus_1] += 1
 
     e_estimate /= number_of_samples
     frequencies = [(x/number_of_samples) for x in frequencies]
 
-    return e_estimate, frequencies
+    if non_zero_fl:
+        return e_estimate, frequencies
+
+    return e_estimate
 
 # Seeding the random number generator with 4 bytes of random data from the system
 seed(urandom(4))
