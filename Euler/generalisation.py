@@ -27,11 +27,11 @@ from euler import gnedenko
 # The number of data points you need in the plot
 NUM_POINTS = 50
 # A list of numbers representing the +ve real number line
-SUMS = [x/10 for x in range(1, NUM_POINTS)]
+SUMS = [x/10 for x in range(1, NUM_POINTS+1)]
 # The total number of Uniform random numbers to use
 N = 100000
 # Find the generalised estimates
-ESTIMATES = [gnedenko(N, SUMS[i])[0] for i in range(NUM_POINTS-1)]
+ESTIMATES = [gnedenko(N, SUMS[i])[0] for i in range(NUM_POINTS)]
 
 plt.plot(SUMS, ESTIMATES, '.')
 plt.plot((0, 5), (e_def, e_def))
