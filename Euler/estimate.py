@@ -20,17 +20,21 @@ Estimate 'e', and plot the frequency distribution of contributing sum lenghts
 '''
 
 from math import floor, e as e_def
+from time import process_time
 from matplotlib import pyplot as plt
 from euler import gnedenko
 
 # The number of sum-samples, which you'd like to see frequences for
-HIST_LENGTH = 7
+HIST_LENGTH = 8
 # When SUM is set to '1', the estimate is for `e'
 SUM = 1
 # The total number of Uniform random numbers to use
-N = 100000
+N = 10000000
 
+START = process_time()
 DATA = gnedenko(N, SUM, HIST_LENGTH)
+print(f"Time taken:  {(process_time() - START):.2f} seconds")
+
 plt.bar([j+1+floor(SUM) for j in range(HIST_LENGTH)], DATA[1])
 plt.title("Frequency distribution of the number of Uniform samples required, \n"
           "for their sum to exceed unity")
@@ -38,3 +42,6 @@ plt.annotate(f"Defined e : {e_def}", xy=(0.5, 0.9), xycoords='axes fraction')
 plt.annotate(f"Estimate  : {DATA[0]}", xy=(0.5, 0.85), xycoords='axes fraction')
 plt.annotate(f"No. of samples = {N:,}", xy=(0.5, 0.8), xycoords='axes fraction')
 plt.show()
+print(f"Defined e : {e_def}")
+print(f"Estimate  : {DATA[0]}")
+print(f"Frequency : {DATA[1]}")
