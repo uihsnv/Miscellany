@@ -30,14 +30,14 @@ Episode 2, Season 1 of the series: "The Basics"
 TOTAL = 35
 FIZZ = 3
 BUZZ = 5
+NULL = ''
 
 for i in range(TOTAL):
-    if i%FIZZ == 0:
-        if i%BUZZ == 0:
-            print("FizzBuzz")
-        else:
-            print("Fizz")
-    elif i%BUZZ == 0:
-        print("Buzz")
-    else:
-        print(i)
+    MESSAGE = NULL
+    if i % FIZZ == 0:
+        MESSAGE += 'Fizz'
+    if i % BUZZ == 0:
+        MESSAGE += 'Buzz'
+    if MESSAGE == NULL:
+        MESSAGE = f'{i}'
+    print(MESSAGE)
