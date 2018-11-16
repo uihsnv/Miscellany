@@ -28,14 +28,16 @@ Episode 2, Season 1 of the series: "The Basics"
 """
 
 TOTAL = 35
+FIZZ = 3
+BUZZ = 5
 
 for i in range(TOTAL):
-    if i%3 == 0:
-        if i%5 == 0:
+    if i%FIZZ == 0:
+        if i%BUZZ == 0:
             print("FizzBuzz")
         else:
             print("Fizz")
-    elif i%5 == 0:
+    elif i%BUZZ == 0:
         print("Buzz")
     else:
         print(i)
