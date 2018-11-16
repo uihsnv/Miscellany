@@ -35,8 +35,7 @@ for i in range(TOTAL):
             print("FizzBuzz")
         else:
             print("Fizz")
+    elif i%5 == 0:
+        print("Buzz")
     else:
-        if i%5 == 0:
-            print("Buzz")
-        else:
-            print(i)
+        print(i)
