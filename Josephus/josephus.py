@@ -26,18 +26,27 @@ Motivated by the video: "The Josephus Problem - Numberphile":
     https://www.youtube.com/watch?v=uCsD3ZGzMgE
 """
 
-TOTAL = 6
+# The initial number of people
+TOTAL = 41
+# Final number of people alive
+# An extention: the "Josephus who want to live" problem
+NUM_PEOPLE_LIVE = 3
+
+# The list of all people
 PEOPLE = [i+1 for i in range(TOTAL)]
 
 NUM_PEOPLE = len(PEOPLE)
 
-while NUM_PEOPLE > 1:
+while NUM_PEOPLE > NUM_PEOPLE_LIVE:
 
+    # Taking out every other person, i.e., all even places
     PEOPLE = PEOPLE[::2]
 
+    # Shift the last to the beginning, if there were an odd
+    # number of people, because it it now their turn to kill
     if NUM_PEOPLE % 2 != 0:
         PEOPLE = PEOPLE[-1:] + PEOPLE[:-1]
 
     NUM_PEOPLE = len(PEOPLE)
 
-print(PEOPLE[0])
+print(PEOPLE)
