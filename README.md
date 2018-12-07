@@ -5,4 +5,3 @@ A collection of short programs of interesting things
 * __Euler__: A statistical definition of Euler's constant "_e_".
 * __Josephus__: <https://en.wikipedia.org/wiki/Josephus_problem>
 * __ProjectEuler__: <https://projecteuler.net/>
-* __Random__: Tests of some random number generating programs.
