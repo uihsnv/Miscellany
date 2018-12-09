@@ -33,6 +33,9 @@ SQRT_N = int(sqrt(N))
 while (N % 2 == 0):
     N = N // 2
 
+if N == 1:
+    print(2)
+
 # Scan upto sqrt(N), because there can atmost be one prime factor greater than that
 for i in range(3,SQRT_N,2):
     OPTIMUS_PRIME = i
