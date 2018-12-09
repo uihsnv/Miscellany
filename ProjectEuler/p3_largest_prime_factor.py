@@ -42,9 +42,9 @@ for i in range(3,SQRT_N,2):
     OPTIMUS_PRIME = i
     while (N % OPTIMUS_PRIME == 0):
         N = N // OPTIMUS_PRIME
-        if N == 1:
-            print(OPTIMUS_PRIME)
-            exit()
+    if N == 1:
+        print(OPTIMUS_PRIME)
+        exit()
 
 # If the program has reached this point, then N is a prime,
 # or the largest prime factor is greater than the square root of N
