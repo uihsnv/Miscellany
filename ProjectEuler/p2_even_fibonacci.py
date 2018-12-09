@@ -27,6 +27,10 @@ Even Fibonacci numbers
     exceed four million, find the sum of the even-valued terms.
 """
 
+from time import process_time
+
+START = process_time()
+
 # The number below which the the Fibonacci sequence must terminate
 NUMBER_LIMIT = 4000000
 
@@ -51,4 +55,6 @@ while FIBONACCI < NUMBER_LIMIT:
     if TOGGLE:
         SUM += FIBONACCI
 
+FINISH = process_time()
 print(SUM)
+print(f"{FINISH-START:.5f} seconds")

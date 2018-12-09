@@ -24,6 +24,10 @@ Multiples of 3 and 5
     Find the sum of all the multiples of 3 or 5 below 1000.
 """
 
+from time import process_time
+
+START = process_time()
+
 NUMBER_LIMIT = 1000
 A = 3
 B = 5
@@ -36,4 +40,6 @@ for i in range(1, NUMBER_LIMIT):
     elif i % B == 0:
         SUM += i
 
+FINISH = process_time()
 print(SUM)
+print(f"{FINISH-START:.5f} seconds")
