@@ -29,14 +29,11 @@ from math import sqrt
 N = 600851475143
 SQRT_N = int(sqrt(N))
 
-# The variable for the largest prime factor
-# Initialised with the smallest prime
-OPTIMUS_PRIME = 2
-
 # Eliminating 2 as a factor, so that we only need to consider odd numbers after
-while (N % OPTIMUS_PRIME == 0):
-    N = N // OPTIMUS_PRIME
+while (N % 2 == 0):
+    N = N // 2
 
+# Scan upto sqrt(N), because there can atmost be one prime factor greater than that
 for i in range(3,SQRT_N,2):
     OPTIMUS_PRIME = i
     while (N % OPTIMUS_PRIME == 0):
