@@ -24,6 +24,9 @@ Largest prime factor
 """
 
 from math import sqrt
+from time import process_time
+
+START = process_time()
 
 # The number, the largest factor of which, we must find
 N = 600851475143
@@ -34,7 +37,9 @@ while (N % 2 == 0):
     N = N // 2
 
 if N == 1:
+    FINISH = process_time()
     print(2)
+    print(f"{FINISH-START:.5f} seconds")
     exit()
 
 # Scan upto sqrt(N), because there can atmost be one prime factor greater than that
@@ -43,9 +48,13 @@ for i in range(3,SQRT_N,2):
     while (N % OPTIMUS_PRIME == 0):
         N = N // OPTIMUS_PRIME
     if N == 1:
+        FINISH = process_time()
         print(OPTIMUS_PRIME)
+        print(f"{FINISH-START:.5f} seconds")
         exit()
 
 # If the program has reached this point, then N is a prime,
 # or the largest prime factor is greater than the square root of N
+FINISH = process_time()
 print(N)
+print(f"{FINISH-START:.5f} seconds")
