@@ -27,6 +27,7 @@ from math import sqrt
 
 # The number, the largest factor of which, we must find
 N = 600851475143
+SQRT_N = int(sqrt(N))
 
 # The variable for the largest prime factor
 # Initialised with the smallest prime
@@ -36,7 +37,7 @@ OPTIMUS_PRIME = 2
 while (N % OPTIMUS_PRIME == 0):
     N = N // OPTIMUS_PRIME
 
-for i in range(3,int(sqrt(N)),2):
+for i in range(3,SQRT_N,2):
     OPTIMUS_PRIME = i
     while (N % OPTIMUS_PRIME == 0):
         N = N // OPTIMUS_PRIME
@@ -44,5 +45,6 @@ for i in range(3,int(sqrt(N)),2):
             print(OPTIMUS_PRIME)
             exit()
 
-# If the program has reached this point, then N is a prime
+# If the program has reached this point, then N is a prime,
+# or the largest prime factor is greater than the square root of N
 print(N)
