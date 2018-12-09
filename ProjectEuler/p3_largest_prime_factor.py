@@ -35,6 +35,7 @@ while (N % 2 == 0):
 
 if N == 1:
     print(2)
+    exit()
 
 # Scan upto sqrt(N), because there can atmost be one prime factor greater than that
 for i in range(3,SQRT_N,2):
