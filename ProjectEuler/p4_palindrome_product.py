@@ -28,6 +28,22 @@ from time import process_time
 
 START = process_time()
 
+# The number of digits the numbers, whose product is the
+# largest palindrome, need to be
+N = 2
+
+# The square of the largest N-digit number
+
+LARGE_N_SQ = 0
+
+for i in range(N):
+    LARGE_N_SQ += 9*(10**i)
+
+LARGE_N_SQ *= LARGE_N_SQ
+
+# Now find the nearest palindrome less than or equal to it,
+# and check to see if it has an N-digit factor couplet.
+# Otherwise rinse and repeat
 
 
 FINISH = process_time()
