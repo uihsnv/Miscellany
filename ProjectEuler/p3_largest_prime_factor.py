@@ -41,19 +41,20 @@ def fin():
     print(f"{finish-START:.5f} seconds")
     exit()
 
+OPTIMUS_PRIME = 1
 # Eliminating 2 as a factor, so that we only need to consider odd numbers after
-OPTIMUS_PRIME = 2
 while N % 2 == 0:
     N = N // 2
 if N == 1:
+    OPTIMUS_PRIME = 2
     fin()
 
 # Scan upto sqrt(N), because there can atmost be one prime factor greater than that
 for i in range(3, SQRT_N, 2):
-    OPTIMUS_PRIME = i
-    while N % OPTIMUS_PRIME == 0:
-        N = N // OPTIMUS_PRIME
+    while N % i == 0:
+        N = N // i
     if N == 1:
+        OPTIMUS_PRIME = i
         fin()
 
 # If the program has reached this point, then N is a prime,
