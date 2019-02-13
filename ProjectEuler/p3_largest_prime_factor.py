@@ -32,32 +32,28 @@ START = process_time()
 N = 600851475143
 SQRT_N = int(sqrt(N))
 
-def fin():
+def fin(optimus_prime=1):
     """
     Ending the program when the largest prime factor is found
     """
     finish = process_time()
-    print(OPTIMUS_PRIME)
+    print(optimus_prime)
     print(f"{finish-START:.5f} seconds")
     exit()
 
-OPTIMUS_PRIME = 1
 # Eliminating 2 as a factor, so that we only need to consider odd numbers after
 while N % 2 == 0:
     N = N // 2
 if N == 1:
-    OPTIMUS_PRIME = 2
-    fin()
+    fin(2)
 
 # Scan upto sqrt(N), because there can atmost be one prime factor greater than that
 for i in range(3, SQRT_N, 2):
     while N % i == 0:
         N = N // i
     if N == 1:
-        OPTIMUS_PRIME = i
-        fin()
+        fin(i)
 
 # If the program has reached this point, then N is a prime,
 # or the largest prime factor is greater than the square root of N
-OPTIMUS_PRIME = N
-fin()
+fin(N)
