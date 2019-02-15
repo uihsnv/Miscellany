@@ -25,6 +25,7 @@ Largest palindrome product
 """
 
 from time import process_time
+from math import log10
 
 START = process_time()
 
@@ -32,20 +33,46 @@ START = process_time()
 # largest palindrome, need to be
 N = 2
 
-# The square of the largest N-digit number
+
+def is_palindrome(sample):
+    """
+    Function to check if a number is a palindrome
+    """
+    digits = int(log10(sample)) + 1
+    maleable = str(sample)
+    for i in range(digits // 2):
+        if  maleable[i] != maleable[digits-i-1]:
+            return False
+    else:
+        return True
+
+def has_2_N_digit_factors(sample):
+    """
+    A check for if the number has two N-digit factors
+    """
+
 
 LARGE_N_SQ = 0
-
+# The largest 'N' digit number
 for i in range(N):
     LARGE_N_SQ += 9*(10**i)
-
+# The square of the largest N-digit number
 LARGE_N_SQ *= LARGE_N_SQ
+
+# The square of the smallest N-digit number
+SMALL_N_SQ = (10**(N-1))**2
+
+print(LARGE_N_SQ, SMALL_N_SQ)
 
 # Now find the nearest palindrome less than or equal to it,
 # and check to see if it has an N-digit factor couplet.
 # Otherwise rinse and repeat
-
+for j in range(LARGE_N_SQ, SMALL_N_SQ, -1):
+    if is_palindrome(j): #and has_2_N_digit_factors(j):
+        print(j)
+        break
+else:
+    print(f"There are no palindromic integers with {N}-digit factors")
 
 FINISH = process_time()
-print(SUM)
 print(f"{FINISH-START:.5f} seconds")
