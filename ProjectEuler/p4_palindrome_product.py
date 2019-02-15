@@ -31,17 +31,22 @@ START = process_time()
 
 # The number of digits the numbers, whose product is the
 # largest palindrome, need to be
-N = 2
+N = 3
 
+def digits(sample):
+    """
+    Number of digits in the integer
+    """
+    return int(log10(sample)) + 1
 
 def is_palindrome(sample):
     """
     Function to check if a number is a palindrome
     """
-    digits = int(log10(sample)) + 1
+    digs = digits(sample)
     maleable = str(sample)
-    for i in range(digits // 2):
-        if  maleable[i] != maleable[digits-i-1]:
+    for i in range(digs // 2):
+        if  maleable[i] != maleable[digs-i-1]:
             return False
     else:
         return True
@@ -50,25 +55,33 @@ def has_2_N_digit_factors(sample):
     """
     A check for if the number has two N-digit factors
     """
+    for i in range(SMALL_N, LARGE_N):
+        if (sample % i == 0) and (digits(sample/i) == N):
+            print(i, sample/i)
+            return True
+    else:
+        return False
 
 
-LARGE_N_SQ = 0
+LARGE_N = 0
 # The largest 'N' digit number
 for i in range(N):
-    LARGE_N_SQ += 9*(10**i)
+    LARGE_N += 10**i
+LARGE_N = 9 * LARGE_N
 # The square of the largest N-digit number
-LARGE_N_SQ *= LARGE_N_SQ
+LARGE_N_SQ = LARGE_N**2
 
+# The largest 'N' digit number
+SMALL_N = 10**(N-1)
 # The square of the smallest N-digit number
-SMALL_N_SQ = (10**(N-1))**2
+SMALL_N_SQ = SMALL_N**2
 
-print(LARGE_N_SQ, SMALL_N_SQ)
 
 # Now find the nearest palindrome less than or equal to it,
 # and check to see if it has an N-digit factor couplet.
 # Otherwise rinse and repeat
 for j in range(LARGE_N_SQ, SMALL_N_SQ, -1):
-    if is_palindrome(j): #and has_2_N_digit_factors(j):
+    if is_palindrome(j) and has_2_N_digit_factors(j):
         print(j)
         break
 else:
