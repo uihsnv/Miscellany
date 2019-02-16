@@ -57,9 +57,9 @@ def has_2_N_digit_factors(sample):
     """
     for i in range(SMALL_N, LARGE_N):
         if (sample % i == 0) and (digits(sample/i) == N):
-            FINISH = process_time()
+            finish = process_time()
             print(i, ' × ', int(sample/i), ' = ', sample)
-            print(f"{FINISH-START:.5f} seconds")
+            print(f"{finish-START:.5f} seconds")
             return True
     else:
         return False
