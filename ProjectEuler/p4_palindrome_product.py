@@ -57,7 +57,9 @@ def has_2_N_digit_factors(sample):
     """
     for i in range(SMALL_N, LARGE_N):
         if (sample % i == 0) and (digits(sample/i) == N):
+            FINISH = process_time()
             print(i, ' × ', int(sample/i), ' = ', sample)
+            print(f"{FINISH-START:.5f} seconds")
             return True
     else:
         return False
@@ -85,6 +87,3 @@ for j in range(LARGE_N_SQ, SMALL_N_SQ, -1):
         break
 else:
     print(f"There are no palindromic integers with {N}-digit factors")
-
-FINISH = process_time()
-print(f"{FINISH-START:.5f} seconds")
