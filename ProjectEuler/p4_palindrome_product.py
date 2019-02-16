@@ -57,7 +57,7 @@ def has_2_N_digit_factors(sample):
     """
     for i in range(SMALL_N, LARGE_N):
         if (sample % i == 0) and (digits(sample/i) == N):
-            print(i, sample/i)
+            print(i, ' × ', int(sample/i), ' = ', sample)
             return True
     else:
         return False
@@ -82,7 +82,6 @@ SMALL_N_SQ = SMALL_N**2
 # Otherwise rinse and repeat
 for j in range(LARGE_N_SQ, SMALL_N_SQ, -1):
     if is_palindrome(j) and has_2_N_digit_factors(j):
-        print(j)
         break
 else:
     print(f"There are no palindromic integers with {N}-digit factors")
