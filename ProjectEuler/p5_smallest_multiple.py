@@ -27,5 +27,45 @@ from time import process_time
 
 START = process_time()
 
+# Natural number upto which to check for divisibility
+N = 20
+
+# A list of primes encountered
+PRIME_LIST = []
+# A list representing the full factorisation of the Least Common Multiple
+# Each entry corresponds to the frequency of primes in the PRIME_LIST
+LCM_FACTOR_FREQ = []
+
+for natural in range(2,N+1):
+    # Generate a list containing the frequencies of prime factors of each number
+    FACTOR_FREQ = [0 for _ in PRIME_LIST]
+    for i, p in enumerate(PRIME_LIST):
+        # cycle through all the primes
+        while natural % p == 0:
+            natural = natural // p
+            FACTOR_FREQ[i] += 1
+        # if existing primes exhaust the number, then we have it's factorisation
+        if natural == 1:
+            # compare with the frequency list of the LCM
+            # if a number has an excess of any prime, use that freq for the LCM
+            for n, x in enumerate(FACTOR_FREQ):
+                if x > LCM_FACTOR_FREQ[n]:
+                    LCM_FACTOR_FREQ[n] = x
+            break
+    # otherwise, what remains is a prime
+    else:
+        PRIME_LIST.append(natural)
+        LCM_FACTOR_FREQ.append(1)
+
+
+# Reconstruct the LCM from the prime factors and their frequencies
+LCM = 1
+for idx, prime in enumerate(PRIME_LIST):
+    LCM *= prime**LCM_FACTOR_FREQ[idx]
+
+
 FINISH = process_time()
-print(f"{finish-START:.5f} seconds")
+#print(PRIME_LIST)
+#print(LCM_FACTOR_FREQ)
+print(LCM)
+print(f"{FINISH-START:.5f} seconds")
