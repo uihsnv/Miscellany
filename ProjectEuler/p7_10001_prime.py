@@ -31,15 +31,17 @@ START = process_time()
 N = 10001
 PRIME_LIST = []
 
-# Start with the first prime as a candidate
-CANDIDATE = 2
+# Start with the second prime as a candidate
+CANDIDATE = 3
 # A count of primes accumulated in the PRIME_LIST
-COUNT = 0
+COUNT = 1
 while COUNT < N:
     # cycle through all the primes found
     for p in PRIME_LIST:
         if CANDIDATE % p == 0:
-            CANDIDATE += 1
+            # Increment by 2, since only odd numbers can be prime
+            # This is also the reason we don't need '2' in the PRIME_LIST
+            CANDIDATE += 2
             break
     # if none of the extant primes divided it, then it is a prime
     else:
@@ -47,5 +49,5 @@ while COUNT < N:
         COUNT += 1
 
 FINISH = process_time()
-print(PRIME_LIST[N-1])
+print(PRIME_LIST[N-2])
 print(f"{FINISH-START:.5f} seconds")
