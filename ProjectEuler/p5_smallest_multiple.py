@@ -18,9 +18,11 @@
 """
 Smallest multiple
 
-    2520 is the smallest number that can be divided by each of the numbers from 1 to 10 without any remainder.
+    2520 is the smallest number that can be divided by each of the numbers from
+    1 to 10 without any remainder.
 
-    What is the smallest positive number that is evenly divisible by all of the numbers from 1 to 20?
+    What is the smallest positive number that is evenly divisible by all of the
+    numbers from 1 to 20?
 """
 
 from time import process_time
@@ -36,7 +38,7 @@ PRIME_LIST = []
 # Each entry corresponds to the frequency of primes in the PRIME_LIST
 LCM_FACTOR_FREQ = []
 
-for natural in range(2,N+1):
+for natural in range(2, N+1):
     # Generate a list containing the frequencies of prime factors of each number
     FACTOR_FREQ = [0 for _ in PRIME_LIST]
     for i, p in enumerate(PRIME_LIST):
