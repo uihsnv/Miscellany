@@ -57,9 +57,9 @@ def has_2_n_digit_factors(sample):
     A check for if the number has two N-digit factors
     """
     for k in range(SMALL_N, LARGE_N):
-        if (sample % k == 0) and (digits(sample/k) == N):
+        if (sample % k == 0) and (digits(sample//k) == N):
             finish = process_time()
-            print(k, ' × ', int(sample/k), ' = ', sample)
+            print(k, ' × ', sample//k, ' = ', sample)
             print(f"{finish-START:.5f} seconds")
             break
     else:
