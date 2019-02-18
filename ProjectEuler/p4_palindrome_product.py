@@ -45,24 +45,26 @@ def is_palindrome(sample):
     """
     digs = digits(sample)
     maleable = str(sample)
-    for i in range(digs // 2):
-        if  maleable[i] != maleable[digs-i-1]:
-            return False
+    for k in range(digs // 2):
+        if  maleable[k] != maleable[digs-k-1]:
+            break
     else:
         return True
+    return False
 
-def has_2_N_digit_factors(sample):
+def has_2_n_digit_factors(sample):
     """
     A check for if the number has two N-digit factors
     """
-    for i in range(SMALL_N, LARGE_N):
-        if (sample % i == 0) and (digits(sample/i) == N):
+    for k in range(SMALL_N, LARGE_N):
+        if (sample % k == 0) and (digits(sample/k) == N):
             finish = process_time()
-            print(i, ' × ', int(sample/i), ' = ', sample)
+            print(k, ' × ', int(sample/k), ' = ', sample)
             print(f"{finish-START:.5f} seconds")
-            return True
+            break
     else:
         return False
+    return True
 
 
 LARGE_N = 0
@@ -83,7 +85,7 @@ SMALL_N_SQ = SMALL_N**2
 # and check to see if it has an N-digit factor couplet.
 # Otherwise rinse and repeat
 for j in range(LARGE_N_SQ, SMALL_N_SQ, -1):
-    if is_palindrome(j) and has_2_N_digit_factors(j):
+    if is_palindrome(j) and has_2_n_digit_factors(j):
         break
 else:
     print(f"There are no palindromic integers with {N}-digit factors")
