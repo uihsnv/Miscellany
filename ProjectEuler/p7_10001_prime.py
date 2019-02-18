@@ -25,25 +25,28 @@
 """
 
 from time import process_time
+from math import sqrt
 
 START = process_time()
 
 N = 10001
-PRIME_LIST = []
+# Initialise the list with the second prime
+PRIME_LIST = [3]
 
-# Start with the second prime as a candidate
-CANDIDATE = 3
+# Start with the third prime as a candidate
+CANDIDATE = 5
 # A count of primes accumulated in the PRIME_LIST
 COUNT = 1
-while COUNT < N:
+while COUNT < N-1:
     # cycle through all the primes found
+    SQRT_CANDIDATE = int(sqrt(CANDIDATE))
     for p in PRIME_LIST:
-        if CANDIDATE % p == 0:
+        if p > SQRT_CANDIDATE:
+            PRIME_LIST.append(CANDIDATE)
+            COUNT += 1
             break
-    # if none of the extant primes divided it, then it is a prime
-    else:
-        PRIME_LIST.append(CANDIDATE)
-        COUNT += 1
+        elif CANDIDATE % p == 0:
+            break
     # Increment by 2, since only odd numbers can be prime
     # This is also the reason we don't need '2' in the PRIME_LIST
     CANDIDATE += 2
