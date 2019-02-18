@@ -36,16 +36,12 @@ CANDIDATE = 2
 # A count of primes accumulated in the PRIME_LIST
 COUNT = 0
 while COUNT < N:
-    TEST = CANDIDATE
+    # cycle through all the primes found
     for p in PRIME_LIST:
-        # cycle through all the primes
-        while TEST % p == 0:
-            TEST = TEST // p
-        # if existing primes exhaust the number, then it isn't a prime
-        if TEST == 1:
+        if CANDIDATE % p == 0:
             CANDIDATE += 1
             break
-    # otherwise, what remains is a prime
+    # if none of the extant primes divided it, then it is a prime
     else:
         PRIME_LIST.append(CANDIDATE)
         COUNT += 1
