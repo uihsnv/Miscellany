@@ -37,6 +37,14 @@ from time import process_time
 
 START = process_time()
 
+# Natural number upto which the difference between the sum of squares and
+# the square of sums need to be found
+N = 100
+
+# The formulae for the two sums gives us:
+
+DIFFERENCE = int((N*(N+1)/2)**2  -  (N*(N+1)*((2*N)+1)/6))
 
 FINISH = process_time()
+print(DIFFERENCE)
 print(f"{FINISH-START:.5f} seconds")
