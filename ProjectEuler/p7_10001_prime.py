@@ -46,6 +46,7 @@ while COUNT < N:
     # if none of the extant primes divided it, then it is a prime
     else:
         PRIME_LIST.append(CANDIDATE)
+        CANDIDATE += 2
         COUNT += 1
 
 FINISH = process_time()
