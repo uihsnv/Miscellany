@@ -39,15 +39,14 @@ while COUNT < N:
     # cycle through all the primes found
     for p in PRIME_LIST:
         if CANDIDATE % p == 0:
-            # Increment by 2, since only odd numbers can be prime
-            # This is also the reason we don't need '2' in the PRIME_LIST
-            CANDIDATE += 2
             break
     # if none of the extant primes divided it, then it is a prime
     else:
         PRIME_LIST.append(CANDIDATE)
-        CANDIDATE += 2
         COUNT += 1
+    # Increment by 2, since only odd numbers can be prime
+    # This is also the reason we don't need '2' in the PRIME_LIST
+    CANDIDATE += 2
 
 FINISH = process_time()
 print(PRIME_LIST[N-2])
