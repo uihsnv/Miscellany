@@ -75,7 +75,7 @@ LARGE_N = 9 * LARGE_N
 # The square of the largest N-digit number
 LARGE_N_SQ = LARGE_N**2
 
-# The largest 'N' digit number
+# The smallest 'N' digit number
 SMALL_N = 10**(N-1)
 # The square of the smallest N-digit number
 SMALL_N_SQ = SMALL_N**2
