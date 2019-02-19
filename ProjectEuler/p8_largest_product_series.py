@@ -81,7 +81,7 @@ PRODUCT = 0
 
 for i in range(SIZE-N):
     PROD = 1
-    for letter in list(NUMBER[i:i+N]):
+    for letter in NUMBER[i:i+N]:
         PROD *= int(letter)
     if PROD > PRODUCT:
         PRODUCT = PROD
