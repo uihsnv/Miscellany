@@ -36,7 +36,7 @@ START = process_time()
 SUM = 1000
 
 for i in range(1, SUM):
-    for j in range(i, SUM):
+    for j in range(i, SUM-i):
         if i**2 + j**2 == (SUM-i-j)**2:
             break
     else:
