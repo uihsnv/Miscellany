@@ -36,14 +36,12 @@ PRIME_LIST = [3]
 # Start with the third prime as a candidate
 CANDIDATE = 5
 # A count of primes accumulated in the PRIME_LIST
-COUNT = 1
-while COUNT < N-1:
+while len(PRIME_LIST) < N-1:
     # cycle through all the primes found
     SQRT_CANDIDATE = int(sqrt(CANDIDATE))
     for p in PRIME_LIST:
         if p > SQRT_CANDIDATE:
             PRIME_LIST.append(CANDIDATE)
-            COUNT += 1
             break
         elif CANDIDATE % p == 0:
             break
