@@ -34,9 +34,14 @@ from time import process_time
 START = process_time()
 
 SUM = 1000
+# Half of the sum is used because:
+#       a^2 + b^2  < (a+b)^2
+#   =>  c < SUM/2
+#   =>  a, b < SUM/2 (since a<c, b<c)
+HALF_SUM = SUM // 2
 
-for i in range(1, SUM):
-    for j in range(i+1, SUM-i):
+for i in range(1, HALF_SUM):
+    for j in range(i+1, HALF_SUM):
         if i**2 + j**2 == (SUM-i-j)**2:
             FINISH = process_time()
             print(i, ' × ', j, ' × ', 1000-i-j, ' = ', i*j*(1000-i-j))
