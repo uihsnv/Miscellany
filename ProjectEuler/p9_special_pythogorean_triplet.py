@@ -33,6 +33,17 @@ from time import process_time
 
 START = process_time()
 
+SUM = 1000
+
+for i in range(1, SUM):
+    for j in range(i, SUM):
+        if i**2 + j**2 == (SUM-i-j)**2:
+            break
+    else:
+        continue
+    break
 
 FINISH = process_time()
+#print(i, j, 1000-i-j)
+print(i*j*(1000-i-j))
 print(f"{FINISH-START:.5f} seconds")
