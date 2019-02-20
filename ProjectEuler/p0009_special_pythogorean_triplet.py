@@ -38,12 +38,12 @@ SUM = 1000
 for i in range(1, SUM):
     for j in range(i+1, SUM-i):
         if i**2 + j**2 == (SUM-i-j)**2:
+            FINISH = process_time()
+            print(i, ' × ', j, ' × ', 1000-i-j, ' = ', i*j*(1000-i-j))
+            print(f"{FINISH-START:.5f} seconds")
             break
     else:
         continue
     break
-
-FINISH = process_time()
-#print(i, j, 1000-i-j)
-print(i*j*(1000-i-j))
-print(f"{FINISH-START:.5f} seconds")
+else:
+    print("There is no number satisfying both conditions")
