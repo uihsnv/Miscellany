@@ -24,9 +24,29 @@ Summation of primes
 """
 
 from time import process_time
+from math import sqrt
 
 START = process_time()
 
+N = 2000000
+# Initialise the list with the second prime
+PRIME_LIST = [3]
+
+# Start with the third prime as a candidate
+CANDIDATE = 5
+
+while CANDIDATE <= N:
+    SQRT_CANDIDATE = int(sqrt(CANDIDATE))
+    for p in PRIME_LIST:
+        if p > SQRT_CANDIDATE:
+            PRIME_LIST.append(CANDIDATE)
+            break
+        elif CANDIDATE % p == 0:
+            break
+    # Increment by 2, since only odd numbers can be prime
+    # This is also the reason we don't need '2' in the PRIME_LIST
+    CANDIDATE += 2
 
 FINISH = process_time()
+print(2 + sum(PRIME_LIST))
 print(f"{FINISH-START:.5f} seconds")
