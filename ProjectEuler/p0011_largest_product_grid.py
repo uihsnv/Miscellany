@@ -87,6 +87,15 @@ for i in range(SIZE-NUM):
         if TEST > PRODUCT:
             PRODUCT = TEST
 
+# Scan off-diagonal
+for i in range(NUM, SIZE):
+    for j in range(SIZE-NUM):
+        TEST = 1
+        for k in range(NUM):
+            TEST *= GRID[i-k][j+k]
+        if TEST > PRODUCT:
+            PRODUCT = TEST
+
 FINISH = process_time()
 print(f"Product = {PRODUCT}")
 print(f"{FINISH-START:.5f} seconds")
