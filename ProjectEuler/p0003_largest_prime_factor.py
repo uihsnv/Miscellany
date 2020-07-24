@@ -23,6 +23,7 @@ Largest prime factor
     What is the largest prime factor of the number 600851475143 ?
 """
 
+from sys import exit as sexit
 from math import sqrt
 from time import process_time
 
@@ -39,7 +40,7 @@ def fin(optimus_prime=1):
     finish = process_time()
     print(optimus_prime)
     print(f"{finish-START:.5f} seconds")
-    exit()
+    sexit()
 
 # Eliminating 2 as a factor, so that we only need to consider odd numbers after
 while N % 2 == 0:

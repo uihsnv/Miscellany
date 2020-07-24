@@ -43,7 +43,7 @@ N = 100
 
 # The formulae for the two sums gives us:
 
-DIFFERENCE = int((N*(N+1)/2)**2  -  (N*(N+1)*((2*N)+1)/6))
+DIFFERENCE = (N*(N+1)//2)**2  -  (N*(N+1)*((2*N)+1)//6)
 
 FINISH = process_time()
 print(DIFFERENCE)

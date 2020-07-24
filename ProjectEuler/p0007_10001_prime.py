@@ -43,7 +43,7 @@ while len(PRIME_LIST) < N-1:
         if p > SQRT_CANDIDATE:
             PRIME_LIST.append(CANDIDATE)
             break
-        elif CANDIDATE % p == 0:
+        if CANDIDATE % p == 0:
             break
     # Increment by 2, since only odd numbers can be prime
     # This is also the reason we don't need '2' in the PRIME_LIST
